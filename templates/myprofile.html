@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myprofile</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" />
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="main-container" id="main-container">
+        <!-- inputs -->
+        <div class="heading">
+            <h1 id="title">Tell<span style="color: #4169E1;">about</span>me</h1>
+            <small>See what others think of you!</small><br><br>
+           
+            <div >
+                <h4 class="about">{{mailid}}</h4><span style="color: #4169E1;"><hr></span>
+                <h4 class="about">{{name}}</h4><br>
+            </div>
+            
+                   <a href="logout"><button  id="logout" name="submit">Logout</button></a><br><br><br>
+            <div class="copy">
+                <small class="tagline1">Copy the below link and share it in your whatsapp status or anywhere and lets see what people think of you !</small><br><br>
+                    <p style="background-color: antiquewhite;" class="links" id="links">Hey there I don't know who is writing, If you want to tell me anything just write on,<br><a href="http://127.0.0.1:5000/{{mailid}}"> http://127.0.0.1:5000/{{mailid}}</a></p><br>
+                    <button id="copys" onclick="copying()">Copy</button><br><br><br>
+            </div>
+            <h9 class="tagline" style="font-weight: bold;">All your reviews</h9><br>
+            <small class="tagline" style="font-style: italic;">Have guts to read &#128514</small><br>
+            <small class="tagline1"><a href="http://127.0.0.1:5000/myprofile">Refresh</a></small><br>
+                <hr>
+                {% for rw in reviews %}
+                <small class="tagline review"><span style="font-style: italic; font-weight: bold;">Name</span> : {{rw['name']}}</small><br>
+                <small class="tagline review"><span style="font-style: italic; font-weight: bold;">Review</span> :  {{rw['review']}}</small><br>
+                <hr>
+                {% endfor %}
+                
+            
+        </div>
+    </div>
+    <script src="/static/copy.js"></script>       
+</body>
+
+</html>
